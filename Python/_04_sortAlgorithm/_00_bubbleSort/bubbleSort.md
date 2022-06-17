@@ -2,9 +2,9 @@
 
 ## 动图
 
-![冒泡排序动图](/home/lichong/Src/myGithubSets/Data_Structure_and_Algorithm/image/bubbleSortImage.gif)
+![](https://github.com/lichong0309/Data_Structure_and_Algorithm/blob/main/image/bubbleSortImage.gif)
 
 ## 流程图
 
-![](/home/lichong/Src/myGithubSets/Data_Structure_and_Algorithm/image/冒泡排序流程图.jpg)
+![](https://github.com/lichong0309/Data_Structure_and_Algorithm/blob/main/image/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F%E6%B5%81%E7%A8%8B%E5%9B%BE.jpg)
 
