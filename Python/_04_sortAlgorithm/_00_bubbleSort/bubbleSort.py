@@ -20,7 +20,7 @@ class bubbleSort(object):
     def sort(self):
         # i: 循环的轮次 (从0开始)
         #    因为每次只能冒泡出一个，所以循环次数为len(self.item)
-        #    最后一次循环只有一个元素，不需要比较，所以循环次数为len(self.item) - 1
+        #    最后一次循环只有一个元素，不需要比较，所以循环次数也可为len(self.item) - 1
         # j: 每次循环需要比较的次数
         #    每次循环的次数为 总长度len(self.item) -1 - 已经冒泡出的元素i
         #    即：len(self.item) - i - 1

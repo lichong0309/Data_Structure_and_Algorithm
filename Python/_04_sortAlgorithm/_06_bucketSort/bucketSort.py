@@ -20,7 +20,7 @@ class bucketSort(object):
         # 创建bucket
         bucketRange = max(self.item) - min(self.item)
         # 每个桶里面最后3个元素
-        bucketNum = int(bucketRange / 3) + 1       # 保证bucket的数量大于一，同时能包含除不尽的数据也能分到最后一个bucket中
+        bucketNum = int(bucketRange / 3) + 1            # 保证bucket的数量大于一，同时能包含除不尽的数据也能分到最后一个bucket中
         bucketList = [[] for i in range(bucketNum)]     # 创建空桶[[], [], []]
         
         # 将数据元素放到对应的桶中

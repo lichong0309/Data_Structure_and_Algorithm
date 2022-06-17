@@ -33,7 +33,7 @@ class countingSort(object):
             count[i] += count[i-1]
             
         # 对原始元素排序
-        afterSort = [0 for x in range(len(self.item))]    # 初始化aftersort全部元素为0
+        afterSort = [0 for x in range(len(self.item))]    # 初始化afterSort全部元素为0
         for j in range(len(self.item)):
             # 累计count对应的值就是排序的位置
             sortIndex = count[self.item[j]] - 1
