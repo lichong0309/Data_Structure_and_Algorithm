@@ -6,8 +6,6 @@
     + [文件目录](#----)
   * [awesome data structure and algorithm](#awesome-data-structure-and-algorithm)
 
-<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
-
 
 ## 本仓库
 
