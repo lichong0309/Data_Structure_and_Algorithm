@@ -20,7 +20,8 @@ class insertionSort(object):
                     break
             self.item[j+1] = temp
             
-            
+    # 第二种实现方法
+    # 通过交换位置的方式移动位置        
     def sort2(self):
         length = len(self.item)
         # i: 循环的轮数，从1开始
