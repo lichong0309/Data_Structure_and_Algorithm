@@ -33,6 +33,7 @@ class singleLink(object):
     # 创建链表
     def createLink(self, firstNode):
         self.head = firstNode
+        
     
     # is_empty() 链表是否为空
     # 为空则返回0， 不为空则返回1

@@ -1,0 +1,9 @@
+addNode(item)    给二叉树添加节点
+isEmpty()        判断二叉树是否为空
+getDepth()       得到深度
+clearTree()      清空二叉树
+DestoryTree()    销毁二叉树
+preOrder()       先序遍历
+inOrder()        中序遍历
+postOrder()      后序遍历
+breadthFirst()   广度优先遍历
