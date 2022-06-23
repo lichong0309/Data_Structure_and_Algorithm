@@ -16,9 +16,6 @@ remove()         删除某一元素
 
 # 定义节点类
 
-from turtle import Turtle
-
-
 class Node(object):
     def __init__(self, item) -> None:
         self.item = item 
@@ -137,6 +134,7 @@ class BinaryTree(object):
     # DestoryTree()    销毁二叉树
     # 使用递归，从下往上删除节点，最后删除根节点
     def DestoryTree(self, root):
+        # print(self.items())
         if root == None:
             return True
         else:
@@ -146,6 +144,7 @@ class BinaryTree(object):
         
         # root=None 并没有释放内存，所以没有修改self.root的内容
         self.root = root
+        # del root
     
     
             
@@ -165,6 +164,7 @@ if __name__ == "__main__":
     print(items)
     
     bt.DestoryTree(bt.root)
+    bt.isEmpty()
     items = bt.items()
     print(items)
         
@@ -176,6 +176,11 @@ if __name__ == "__main__":
                     
                 
             
+
+
+
+
+
 
 
 
