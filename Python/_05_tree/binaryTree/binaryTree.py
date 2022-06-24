@@ -16,6 +16,9 @@ remove()         删除某一元素
 
 # 定义节点类
 
+from cgitb import reset
+
+
 class Node(object):
     def __init__(self, item) -> None:
         self.item = item 
@@ -147,6 +150,62 @@ class BinaryTree(object):
         # del root
     
     
+    # preOrder()       先序遍历
+    def __recursionPreOrder(self, root, result):
+        if root == None:
+            return
+        else:
+            result.append(root.item)
+            if root.leftNode != None:
+                self.__recursionPreOrder(root.leftNode, result)
+            if root.rightNode != None: 
+                self.__recursionPreOrder(root.rightNode, result)
+        
+    def proOrder(self):
+        result = []
+        self.__recursionPreOrder(self.root, result)
+        print("先序遍历结果：",result)
+        
+    
+    # inOrder()        中序遍历   
+    def __recursionInOrder(self, root, result):
+        if root == None:
+            return 
+        else:
+            if root.leftNode != None:
+                self.__recursionInOrder(root.leftNode, result)
+            
+            result.append(root.item)
+            
+            if root.rightNode != None:
+                self.__recursionInOrder(root.rightNode, result)
+                
+                
+    def inOrder(self):
+        result = []
+        self.__recursionInOrder(self.root, result)
+        print("中序遍历的结果：", result)
+
+
+    # postOrder()      后序遍历
+    def __recursionPostOrder(self, root, result):
+        if root == None:
+            return 
+        else:
+            if root.leftNode != None:
+                self.__recursionPostOrder(root.leftNode, result)
+            
+            if root.rightNode != None:
+                self.__recursionPostOrder(root.rightNode, result)
+            
+            result.append(root.item)
+    
+    def postOrder(self):
+        result = []
+        self.__recursionPostOrder(self.root, result)
+        print("后序遍历结果：",result)
+                     
+
             
 
 
@@ -163,10 +222,23 @@ if __name__ == "__main__":
     items = bt.items()
     print(items)
     
-    bt.DestoryTree(bt.root)
-    bt.isEmpty()
-    items = bt.items()
-    print(items)
+    # bt.DestoryTree(bt.root)
+    # bt.isEmpty()
+    # items = bt.items()
+    # print(items)
+    
+    
+    # 前序遍历 
+    bt.proOrder()
+    
+    # 中序遍历
+    bt.inOrder()
+    
+    # 后序遍历
+    bt.postOrder()
+    
+
+    
         
                         
                     
@@ -176,6 +248,7 @@ if __name__ == "__main__":
                     
                 
             
+
 
 
 
