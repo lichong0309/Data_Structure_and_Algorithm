@@ -10,7 +10,7 @@ inOrder()        中序遍历
 postOrder()      后序遍历
 breadthFirst()   广度优先遍历
 search()         查找二叉树元素
-remove()         删除某一元素
+remove(item)         删除某一元素
 '''
 
 
@@ -206,8 +206,114 @@ class BinaryTree(object):
         print("后序遍历结果：",result)
                      
 
+    # breadthFirst()   广度优先遍历
+    def breadthFirst(self):
+        if self.root == None:
+            print("二叉树为空！")
+            return False
+        else:
+            result = []
+            queue = []          # 初始化为空队列
+            queue.append(self.root)
+            while queue != []:
+                cur = queue.pop(0)      # 出队列
+                result.append(cur.item)
+                if cur.leftNode != None:
+                    queue.append(cur.leftNode)
+                if cur.rightNode != None:
+                    queue.append(cur.rightNode)
+        
+        print("层序遍历结果：", result)
+    
+    
+    # 前序遍历查找
+    def __preSearch(self, root, item, flag, location):
+        # root: 子树（树）的根节点
+        # item: 需要查找的元素
+        # flag：标志是否找到元素，如果找到了则标记1，没有找到则标记为0
+        # location: 元素所在的位置
+        if root == None:
+            return flag, location 
+        
+        else:
+            if root.item == item:
+                flag = 1       # flag标记为1
+                print("前序遍历查找，元素所在的位置为：",location)
+                return flag, location
+            else:
+                location = location + 1
+                flag, location = self.__preSearch(root.leftNode, item, flag, location)
+                flag, location = self.__preSearch(root.rightNode, item, flag, location)
+                return flag, location 
+        
+    # 中序遍历查找
+    def __inSearch(self, root, item, flag, location):
+        # root: 子树（树）的根节点
+        # item: 需要查找的元素
+        # flag：标志是否找到元素，如果找到了则标记1，没有找到则标记为0
+        # location: 元素所在的位置
+        
+        if root == None:
+            return flag, location 
+        else:
+            if root.leftNode != None:
+                flag, location = self.__inSearch(root.leftNode, item, flag, location)
             
+            if root.item == item:
+                flag = 1        # flag标记为1
+                print("中序遍历查找，元素所在位置为：", location)
+                return flag, location
+            
+            location = location + 1
+            
+            if root.rightNode != None:
+                flag, location = self.__inSearch(root.rightNode, item, flag, location) 
+                   
+            return flag, location 
+    
+    # 后序遍历查找元素
+    def __postSearch(self, root, item, flag, location):
+        # root: 子树（树）的根节点
+        # item: 需要查找的元素
+        # flag：标志是否找到元素，如果找到了则标记1，没有找到则标记为0
+        # location: 元素所在的位置     
+        if root == None:
+            return flag, location 
+        else:
+            if root.leftNode != None:
+                flag, location = self.__postSearch(root.leftNode, item, flag, location)
+            if root.rightNode != None:
+                flag, location = self.__postSearch(root.rightNode, item, flag, location)
+            if root.item == item:
+                flag = 1
+                print("后序遍历查找，元素所在的位置为：",location)
+                return flag, location 
+            location = location + 1
+            return flag, location 
+            
+    # search()         查找二叉树元素
+    def search(self, item, method="pre"):
+        # 前序遍历
+        if method == "pre":
+            flag, _ = self.__preSearch(self.root, item, flag=0, location=0)
+            if flag == 0:
+                print("元素不在二叉树中")
+        # 中序遍历
+        if method == "in":
+            flag, _ = self.__inSearch(self.root, item, flag=0, location=0)
+            if flag == 0:
+                print("元素不在二叉树中")
+        # 后序遍历
+        if method == "post":
+            flag, _ = self.__postSearch(self.root, item, flag=0, location=0)
+            if flag == 0:
+                print("元素不在二叉树中")
 
+    
+    # remove(item)         删除某一元素
+    def remvoe(self, item):
+        pass
+        
 
 if __name__ == "__main__":
     bt = BinaryTree()
@@ -237,6 +343,13 @@ if __name__ == "__main__":
     # 后序遍历
     bt.postOrder()
     
+    # 层序遍历
+    bt.breadthFirst()
+    
+    
+    # 前序遍历查找
+    bt.search(400,"post")
+    
 
     
         
@@ -248,6 +361,8 @@ if __name__ == "__main__":
                     
                 
             
+
+
 
 
 
