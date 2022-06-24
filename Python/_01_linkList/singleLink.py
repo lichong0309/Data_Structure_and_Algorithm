@@ -45,6 +45,7 @@ class singleLink(object):
         else:
             print("链表不为空")
             return 1
+  
     
     # length() 链表长度
     def length(self):
@@ -60,7 +61,8 @@ class singleLink(object):
                 
         else:
             print("链表长度为0")
-        
+
+       
     # items() 获取链表数据data迭代器,把所有节点的data放到一个list或者迭代器中
     def items(self):
         print("******* items() ********")

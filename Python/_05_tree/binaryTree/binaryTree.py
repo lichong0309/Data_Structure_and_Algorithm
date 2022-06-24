@@ -15,10 +15,6 @@ remove(item)         删除某一元素
 
 
 # 定义节点类
-
-from cgitb import reset
-
-
 class Node(object):
     def __init__(self, item) -> None:
         self.item = item 
@@ -78,6 +74,7 @@ class BinaryTree(object):
                         queue.append(cur.rightNode)     # 再添加右孩子到队列
                         
 
+
     # items()          得到整个二叉树的元素迭代器
     def items(self):
         binaryTreeList = []         # 存放二叉树元素的迭代器
@@ -104,6 +101,8 @@ class BinaryTree(object):
                     pass
         return binaryTreeList
     
+    
+    
     # getDepth()       得到深度
     def getDepth(self):
         count = 0
@@ -115,7 +114,9 @@ class BinaryTree(object):
             while cur != None:
                 count = count + 1
                 cur = cur.rightNode
-        return count 
+        return count
+    
+     
     
     # clearTree()      清空二叉树
     # 使用递归
@@ -290,7 +291,29 @@ class BinaryTree(object):
                 return flag, location 
             location = location + 1
             return flag, location 
-            
+        
+    # 广度优先遍历查找       
+    def __breadthSearch(self, item):
+        # root: 子树（树）的根节点
+        # item: 需要查找的元素
+        # flag：标志是否找到元素，如果找到了则标记1，没有找到则标记为0
+        # location: 元素所在的位置    
+        queue = []
+        queue.append(self.root)
+        location = 0
+        while queue != []:
+            cur = queue.pop(0)
+            if cur.item == item:
+                print("广度优先遍历查找，元素所在的位置为：", location)
+                return True
+            else:
+                if cur.leftNode != None:
+                    queue.append(cur.leftNode)
+                if cur.rightNode != None:
+                    queue.append(cur.rightNode)
+            location = location + 1
+                    
+    
     # search()         查找二叉树元素
     def search(self, item, method="pre"):
         # 前序遍历
@@ -308,6 +331,10 @@ class BinaryTree(object):
             flag, _ = self.__postSearch(self.root, item, flag=0, location=0)
             if flag == 0:
                 print("元素不在二叉树中")
+        
+        # 广度优先遍历
+        if method == "breadth":
+            self.__breadthSearch(item)
 
     
     # remove(item)         删除某一元素
@@ -348,7 +375,7 @@ if __name__ == "__main__":
     
     
     # 前序遍历查找
-    bt.search(400,"post")
+    bt.search(400,"breadth")
     
 
     
@@ -361,6 +388,7 @@ if __name__ == "__main__":
                     
                 
             
+
 
 
 
