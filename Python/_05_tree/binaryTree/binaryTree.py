@@ -429,9 +429,6 @@ class BinaryTree(object):
     #                 print("test")
     #                 # 判断是否为叶节点
     #                 if root.leftNode == None and root.rightNode == None:          # 为叶节点
-    #                     # root.item = 0
-    #                     # del root
-    #                     # gc.collect()
     #                     root = None                # 直接删除节点
     #                 else:                           # 不为叶节点
     #                     if root.leftNode != None:
@@ -476,6 +473,134 @@ class BinaryTree(object):
         
     #     self.root = root
     #     return flag 
+    
+    
+    # 前序遍历删除
+    def __preRemove(self, root, item, flag=0):
+        # root: 子树（树）的根节点
+        # item: 需要删除的元素的数据
+        # falg: 删除是否成功的标志， 0表示删除失败，1表示删除成功  
+    
+        # 如果删除的是根节点
+        if self.root.item == item:
+            cur = self.root
+            while cur != None:
+                # 1. 如果存在左孩子：
+                if cur.leftNode != None:
+                    cur.item = cur.leftNode.item        # 覆盖root节点的数据
+                    
+                    # 1.1 如果子节点为叶节点，则直接删除子节点
+                    if cur.leftNode.leftNode == None and cur.leftNode.rightNode == None:
+                        cur.leftNode = None
+                        flag = 1
+                        return flag
+                    # 1.2 如果子节点不是叶节点：
+                    else:
+                        cur = cur.leftNode
+                # 2. 如果没有左孩子，有右孩子
+                if cur.leftNode == Node and cur.rightNode != None:
+                    cur.item = cur.rightNode.item       # 覆盖root节点的数据
+                    
+                    # 2.1 如果子节点为叶节点，则直接删除子节点
+                    if cur.rightNode.leftNode == None and cur.rightNode.rightNode == None:
+                        cur.rightNode = None
+                        flag = 1
+                        return flag
+                    # 2.2 如果子节点不是叶子节点
+                    else:
+                        cur = cur.rightNode
+                
+                # 3. 如果左孩子和右孩子都没有：
+                if cur.leftNode == None and cur.rightNoe == None:
+                    self.root = None
+                    flag = 1
+                    return flag 
+        # 如果删除的不是根节点
+        if self.root.item != item:
+            if root == None:
+                return flag 
+            
+            # 如果父节点的左孩子是应该删除的节点
+            if root.leftNode != None and root.leftNode.item == item:
+
+                # # 1. 如果该删除的节点是叶子节点，直接删除
+                # if root.leftNode.leftNode == None and root.leftNode.rightNode == None:
+                #     root.leftNode = None
+                # # 2. 如果删除的节点不是叶子节点，则需要调整二叉树的结构
+                # else:
+                #     cur = root
+                #     while cur != None:
+                #         # 2.1 如果root.leftNode的左孩子存在
+                #         if root.leftNode.leftNode != None:
+                cur = root
+                while cur != None:
+                    # 1. 如果root.leftNode 有左孩子：
+                    if cur.leftNode.leftNode != None:
+                        cur.leftNode.item = cur.leftNode.leftNode.item 
+                        # 1.1 如果root.leftNode的左孩子是叶子节点, 则直接删除
+                        if cur.leftNode.leftNode.leftNode == None and cur.leftNode.leftNode.rightNode == None:
+                            cur.leftNode.leftNode = None
+                            flag = 1 
+                            return flag
+                        # 1.2 如果root.leftNode的左孩子不是叶子节点
+                        else:
+                            cur = cur.leftNode
+                    # 2. 如果root.leftNode没有左孩子，但是有右孩子
+                    if cur.leftNode.leftNode == None and cur.leftNode.rightNOde != None:
+                        cur.leftNode.item = cur.leftNode.rightNode.item
+                        # 2.1 如果root.leftNode的右孩子是叶子节点，则直接删除
+                        if cur.leftNode.rightNode.leftNode == None and cur.leftNode.rightNode.rightNode == None:
+                            cur.leftNode.rightNode = None 
+                            flag = 1
+                            return flag 
+                        #2.2 如果root.leftNode.rightNode不是叶子节点
+                        else:
+                            cur = cur.leftNode
+                    # 3. 如果root.leftNode没有左孩子和右孩子，则直接删除
+                    else:
+                        cur.leftNode = None
+                        flag = 1 
+                        return flag 
+                    
+            # 如果父节点的右孩子是应该删除的节点
+            if root.rigthNode != None and root.rightNode.item == item:
+                cur = root
+                while cur != None:
+                    # 1. 如果root.rightNode 有左孩子：
+                    if cur.rightNode.leftNode != None:
+                        cur.rightNode.item = cur.rightNode.leftNode.item 
+                        # 1.1 如果root.rightNode的左孩子是叶子节点, 则直接删除
+                        if cur.rightNode.leftNode.leftNode == None and cur.rightNode.leftNode.rightNode == None:
+                            cur.rightNode.leftNode = None
+                            flag = 1 
+                            return flag
+                        # 1.2 如果root.rightNode的左孩子不是叶子节点
+                        else:
+                            cur = cur.rightNode
+                    # 2. 如果root.rightNode没有左孩子，但是有右孩子
+                    if cur.rightNode.leftNode == None and cur.rightNode.rightNOde != None:
+                        cur.rihgtNode.item = cur.rightNode.rightNode.item
+                        # 2.1 如果root.rightNode的右孩子是叶子节点，则直接删除
+                        if cur.rightNode.rightNode.leftNode == None and cur.rightNode.rightNode.rightNode == None:
+                            cur.rightNode.rightNode = None 
+                            flag = 1
+                            return flag 
+                        #2.2 如果root.rightNode.rightNode不是叶子节点
+                        else:
+                            cur = cur.rightNode
+                    # 3. 如果root.leftNode没有左孩子和右孩子，则直接删除
+                    else:
+                        cur.leftNode = None
+                        flag = 1 
+                        return flag 
+            
+            flag = self.__preRemove(root.leftNode, item, flag)
+            flag = self.__preRemove(root.rightNode, item, flag)
+            
+            return flag 
+                    
+                    
+                    
             
                     
             
@@ -533,11 +658,11 @@ if __name__ == "__main__":
     # 前序遍历查找
     # bt.search(400,"breadth")
     
-    # # 前序遍历删除
-    # bt.remvoe(100, "pre")
-    # bt.proOrder()
-    # items = bt.items()
-    # print(items)
+    # 前序遍历删除
+    bt.remvoe(10, "pre")
+    bt.proOrder()
+    items = bt.items()
+    print(items)
         
 
     
