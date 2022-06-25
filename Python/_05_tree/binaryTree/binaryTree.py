@@ -599,11 +599,7 @@ class BinaryTree(object):
             
             return flag 
                     
-                    
-                    
-            
-                    
-            
+
     # remove(item)         删除某一元素
     def remvoe(self, item, method:str):
         if method == "pre":
@@ -659,7 +655,7 @@ if __name__ == "__main__":
     # bt.search(400,"breadth")
     
     # 前序遍历删除
-    bt.remvoe(10, "pre")
+    bt.remvoe(100, "pre")
     bt.proOrder()
     items = bt.items()
     print(items)
