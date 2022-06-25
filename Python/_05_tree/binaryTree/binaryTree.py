@@ -13,7 +13,8 @@ search()         查找二叉树元素
 remove(item)         删除某一元素
 '''
 
-
+import gc
+from typing import *
 # 定义节点类
 class Node(object):
     def __init__(self, item) -> None:
@@ -46,7 +47,7 @@ class BinaryTree(object):
         if self.root == None:
             print("二叉树为空")
             self.root = newNode
-            print("根节点添加成功")
+            # print("根节点添加成功")
         
         # 如果二叉树不为空    
         else:
@@ -60,13 +61,13 @@ class BinaryTree(object):
                 # 否则判断当前节点的右孩子节点是否为空
                 if cur.leftNode == None:
                     cur.leftNode = newNode
-                    print("节点添加成功")
+                    # print("节点添加成功")
                     return True
                 else:
                     # 如果当前节点的右孩子节点为空，则添加新节点到当前节点的右孩子
                     if cur.rightNode == None:
                         cur.rightNode = newNode
-                        print("节点添加成功")
+                        # print("节点添加成功")
                         return True
                     # 如果当前节点的左孩子和右孩子都不为空，则继续遍历
                     else:
@@ -336,10 +337,80 @@ class BinaryTree(object):
         if method == "breadth":
             self.__breadthSearch(item)
 
+    # # 前序遍历 删除 
+    # def __preRemove(self, root, item, flag):
+    #     # root: 子树（树）的根节点
+    #     # item: 需要删除的元素的数据
+    #     # falg: 删除是否成功的标志， 0表示删除失败，1表示删除成功
+    #     if root == None:
+    #         return flag
+        
+    #     else:
+    #         # cur = root
+    #         # 是否存在元素item
+    #         if root.item == item:
+    #             while root != None:
+    #                 print("test")
+    #                 # 判断是否为叶节点
+    #                 if root.leftNode == None and root.rightNode == None:          # 为叶节点
+    #                     # root.item = 0
+    #                     # del root
+    #                     # gc.collect()
+    #                     root = None                # 直接删除节点
+    #                 else:                           # 不为叶节点
+    #                     if root.leftNode != None:
+    #                         root.item = root.leftNode.item
+    #                         root = root.leftNode
+    #                     else:
+    #                         if root.rightNode != None:
+    #                             root.item = root.rightNode.item
+    #                             root = root.rigthNode
+    #             flag = 1                # 标志设为1，表示删除成功
+    #             print("删除成功")
+    #             return flag
+    #         # 迭代
+    #         if root.leftNode != None:
+    #             flag = self.__preRemove(root.leftNode, item, flag)
+    #         if root.rightNode != None:
+    #             flag = self.__preRemove(root.rightNode, item, flag)
+
+    #     # self.root = root 
+    #     return flag
     
+    
+    def __preRemove(self, root, item, flag):
+        if root == None:
+            return flag 
+        if root.item == item:
+            # 是叶节点
+            if root.leftNode == None and root.rightNode == None:
+                root = None
+                flag = 1
+            # 非叶节点
+            else:
+                if root.leftNode != None:
+                    root.item, root.leftNode.item = root.leftNode.item, root.item
+                else:
+                    root.item, root.rightNode.item = root.rightNode.item, root.item
+            
+            
+        if root != None:
+            flag = self.__preRemove(root.leftNode, item, flag)
+            flag = self.__preRemove(root.rightNode, item, flag)
+        
+        self.root = root
+        return flag 
+            
+                    
+            
     # remove(item)         删除某一元素
-    def remvoe(self, item):
-        pass
+    def remvoe(self, item, method:str):
+        if method == "pre":
+            flag = self.__preRemove(self.root, item, flag=0)
+            if flag == 0:
+                print("所删除的元素不在二叉树中")
+
+        
         
 
 if __name__ == "__main__":
@@ -355,10 +426,10 @@ if __name__ == "__main__":
     items = bt.items()
     print(items)
     
-    # bt.DestoryTree(bt.root)
-    # bt.isEmpty()
-    # items = bt.items()
-    # print(items)
+    bt.clearTree(bt.root)
+    bt.isEmpty()
+    items = bt.items()
+    print(items)
     
     
     # 前序遍历 
@@ -375,8 +446,14 @@ if __name__ == "__main__":
     
     
     # 前序遍历查找
-    bt.search(400,"breadth")
+    # bt.search(400,"breadth")
     
+    # # 前序遍历删除
+    # bt.remvoe(100, "pre")
+    # bt.proOrder()
+    # items = bt.items()
+    # print(items)
+        
 
     
         
@@ -388,6 +465,7 @@ if __name__ == "__main__":
                     
                 
             
+
 
 
 
