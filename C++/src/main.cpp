@@ -1,8 +1,9 @@
 #include <iostream>
 
 void fun(int *p){
-	// p = NULL;
-	delete p;
+	p = NULL;
+	// delete p;
+	free(p);
 }
 int main(int argc, char *argv[])
 {	

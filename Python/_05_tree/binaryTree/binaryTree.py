@@ -3,6 +3,8 @@ addNode(item)    给二叉树添加节点
 isEmpty()        判断二叉树是否为空
 items()          得到整个二叉树的元素迭代器
 getDepth()       得到深度
+getParent()      得到父节点
+getNodeNum()     得到节点数量
 clearTree()      清空二叉树
 DestoryTree()    销毁二叉树
 preOrder()       先序遍历
@@ -117,39 +119,113 @@ class BinaryTree(object):
                 cur = cur.rightNode
         return count
     
-     
     
-    # clearTree()      清空二叉树
-    # 使用递归
+    # getParent()      得到父节点
+    # 使用广度优先遍历
+    def getParent(self, node):
+        if node.item == self.root.item:
+            print("节点为根节点，没有父节点")
+            return False
+        else:
+            location = 0        # 父节点的位置
+            queue = []
+            queue.append(self.root)
+            while queue != []:
+                cur = queue.pop(0)
+                if cur.leftNode.item == node.item or cur.rightNode.item == node.item:
+                    pNode = cur
+                    print("存在父节点，位置为：",location)
+                    return pNode
+                else:
+                    queue.append(cur.leftNode)
+                    queue.append(cur.rightNode)
+                location += 1
+        
+        print("节点没有父节点")
+        return False
+              
+              
+    # getNodeNum()     得到节点数量
+    # 使用先序遍历
+    def getNodeNum(self, root, count=0):
+        if root == None:
+            return count
+        else:
+            count = count + 1
+            count = self.getNodeNum(root.leftNode, count)
+            count = self.getNodeNum(root.rightNode, count)
+        return count
+            
+            
+
+    # # clearTree()      清空二叉树
+    # # 使用递归
+    # def clearTree(self, root):
+    #     if root == None:
+    #         return True
+    #     else:
+    #         self.clearTree(root.leftNode)
+    #         self.clearTree(root.rightNode)
+    #         if root == self.root:
+    #             pass
+    #         else:
+    #             root = None
+                
+    #     # root=None 并没有释放内存，所以没有修改self.root的内容
+    #     self.root = root
+    
+    # clearTree()           清空二叉树
+    # 使用后序遍历 递归
     def clearTree(self, root):
         if root == None:
+            return True
+        if root.leftNode == None and root.rightNode == None:
             return True
         else:
             self.clearTree(root.leftNode)
             self.clearTree(root.rightNode)
-            if root == self.root:
-                pass
-            else:
-                root = None
-                
-        # root=None 并没有释放内存，所以没有修改self.root的内容
-        self.root = root
+            
+            # 删除节点
+            root.leftNode = None
+            root.rightNode = None
+        
+        return True
             
     
-    # DestoryTree()    销毁二叉树
-    # 使用递归，从下往上删除节点，最后删除根节点
+    # # DestoryTree()    销毁二叉树
+    # # 使用递归，从下往上删除节点，最后删除根节点
+    # def DestoryTree(self, root):
+    #     # print(self.items())
+    #     if root == None:
+    #         return True
+    #     else:
+    #         self.DestoryTree(root.leftNode)
+    #         self.DestoryTree(root.rightNode)
+    #         root = None
+        
+    #     # root=None 并没有释放内存，所以没有修改self.root的内容
+    #     self.root = root
+    #     # del root
+    
+    
+    # DestoryTree()         # 销毁二叉树
+    # 使用后序遍历 递归
     def DestoryTree(self, root):
-        # print(self.items())
         if root == None:
             return True
         else:
             self.DestoryTree(root.leftNode)
             self.DestoryTree(root.rightNode)
-            root = None
+            
+            # 删除节点
+            root.leftNode = None
+            root.rightNode = None 
+            
+            # 删除根节点
+            if root == self.root:
+                self.root = None
         
-        # root=None 并没有释放内存，所以没有修改self.root的内容
-        self.root = root
-        # del root
+        return True
     
     
     # preOrder()       先序遍历
@@ -378,28 +454,28 @@ class BinaryTree(object):
     #     return flag
     
     
-    def __preRemove(self, root, item, flag):
-        if root == None:
-            return flag 
-        if root.item == item:
-            # 是叶节点
-            if root.leftNode == None and root.rightNode == None:
-                root = None
-                flag = 1
-            # 非叶节点
-            else:
-                if root.leftNode != None:
-                    root.item, root.leftNode.item = root.leftNode.item, root.item
-                else:
-                    root.item, root.rightNode.item = root.rightNode.item, root.item
+    # def __preRemove(self, root, item, flag):
+    #     if root == None:
+    #         return flag 
+    #     if root.item == item:
+    #         # 是叶节点
+    #         if root.leftNode == None and root.rightNode == None:
+    #             root = None
+    #             flag = 1
+    #         # 非叶节点
+    #         else:
+    #             if root.leftNode != None:
+    #                 root.item, root.leftNode.item = root.leftNode.item, root.item
+    #             else:
+    #                 root.item, root.rightNode.item = root.rightNode.item, root.item
             
             
-        if root != None:
-            flag = self.__preRemove(root.leftNode, item, flag)
-            flag = self.__preRemove(root.rightNode, item, flag)
+    #     if root != None:
+    #         flag = self.__preRemove(root.leftNode, item, flag)
+    #         flag = self.__preRemove(root.rightNode, item, flag)
         
-        self.root = root
-        return flag 
+    #     self.root = root
+    #     return flag 
             
                     
             
@@ -426,10 +502,19 @@ if __name__ == "__main__":
     items = bt.items()
     print(items)
     
-    bt.clearTree(bt.root)
-    bt.isEmpty()
-    items = bt.items()
-    print(items)
+    # 寻找父节点
+    bt.getParent(Node(100))
+    
+    # 得到节点数量
+    count = bt.getNodeNum(bt.root, 0)
+    print("节点的数量为：", count)
+    
+    # bt.clearTree(bt.root)
+    # bt.DestoryTree(bt.root)
+    
+    # bt.isEmpty()
+    # items = bt.items()
+    # print(items)
     
     
     # 前序遍历 
@@ -465,6 +550,7 @@ if __name__ == "__main__":
                     
                 
             
+
 
 
 
