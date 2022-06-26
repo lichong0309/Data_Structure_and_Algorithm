@@ -36,6 +36,6 @@ class Solution:
 
                         else:
                             # count > 0:
-                            # 这种情况西药right往后移动才能产生三数之和为0的情况
+                            # 这种情况需要right往后移动才能产生三数之和为0的情况
                             right = right - 1
         return ans 
