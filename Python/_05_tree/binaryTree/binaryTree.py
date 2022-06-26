@@ -146,8 +146,8 @@ class BinaryTree(object):
               
               
     # getNodeNum()     得到节点数量
-    # 使用先序遍历
-    def getNodeNum(self, root, count=0):
+    # 使用先序遍历, 把整个二叉树遍历一遍，计数变量count记录二叉树的个数
+    def getNodeNum1(self, root, count=0):
         if root == None:
             return count
         else:
@@ -155,6 +155,15 @@ class BinaryTree(object):
             count = self.getNodeNum(root.leftNode, count)
             count = self.getNodeNum(root.rightNode, count)
         return count
+    
+    # 使用递归，
+    def getNodeNum(self, root):
+        if root == None:
+            return 0 
+        else:
+            leftCount = self.getNodeNum(root.leftNode)
+            rightCount = self.getNodeNum(root.rightNode)
+            return 1 + leftCount + rightCount
             
             
 
@@ -627,7 +636,7 @@ if __name__ == "__main__":
     bt.getParent(Node(100))
     
     # 得到节点数量
-    count = bt.getNodeNum(bt.root, 0)
+    count = bt.getNodeNum(bt.root)
     print("节点的数量为：", count)
     
     # bt.clearTree(bt.root)
@@ -671,6 +680,7 @@ if __name__ == "__main__":
                     
                 
             
+
 
 
 
