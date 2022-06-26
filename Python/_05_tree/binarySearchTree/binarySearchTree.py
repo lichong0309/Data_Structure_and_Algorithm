@@ -40,9 +40,22 @@ class BinarySearchTree(object):
     
     
     # addNode(item)    给二叉树添加节点
-    def addNode(self, item):
-        pass
-    
+    # 递归
+    def addNode(self, root, item):
+        # 退出标志
+        if root == None:
+            root = Node(item)
+            print("添加节点成功")
+            return True
+        else:
+            if item == root.item:
+                print("原二叉树中已有节点")
+                return True
+            elif item < root.item:
+                self.addNode(root.leftNode, item)
+            elif item > root.item:
+                self.addNode(root.rightNode, item)
+                
     
     # items()          得到整个二叉树的元素迭代器
     def items(self):
