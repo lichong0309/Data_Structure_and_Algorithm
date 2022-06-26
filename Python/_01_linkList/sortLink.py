@@ -10,6 +10,8 @@ from typing import Optional
 #     def __init__(self, data=0, next=None):
 #         self.data = data
 #         self.next = next
+
+
 class Solution:
     def sortList(self, head: Optional[singleLinkNode]) -> Optional[singleLinkNode]:
         # cur_i = head
