@@ -38,5 +38,33 @@ class BinarySearchTree(object):
             print("二叉树不为空")
             return True
     
-    # 
+    # addNode(item)    给二叉树添加节点
+    def addNode(self, item):
+        pass
+    
+    # items()          得到整个二叉树的元素迭代器
+    def items(self):
+        pass
 
+    
+    # getDepth()       得到深度
+    def getDepth(self):
+        pass
+    
+    # getParent()      得到父节点
+    def getParent(self):
+        pass
+    
+    
+    # getNodeNum()     得到节点数量
+    def getNodeNum(self):
+        pass
+    
+    # clearTree()      清空二叉树
+    def clearTree(self):
+        pass
+    
+    # DestoryTree()    销毁二叉树
+    def DestoryTree(self):
+        pass
+    
