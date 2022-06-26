@@ -79,6 +79,7 @@ class BinaryTree(object):
 
 
     # items()          得到整个二叉树的元素迭代器
+    # 广度优先遍历
     def items(self):
         binaryTreeList = []         # 存放二叉树元素的迭代器
         # 如果二叉树为空
@@ -106,18 +107,27 @@ class BinaryTree(object):
     
     
     
-    # getDepth()       得到深度
-    def getDepth(self):
-        count = 0
-        if self.root == None:
-            print("二叉树为空")
-            return count
+    # # getDepth()       得到深度
+    # def getDepth(self):
+    #     count = 0
+    #     if self.root == None:
+    #         print("二叉树为空")
+    #         return count
+    #     else:
+    #         cur = self.root
+    #         while cur != None:
+    #             count = count + 1
+    #             cur = cur.rightNode
+    #     return count
+    
+    # getDepth()         得到深度
+    def getDepth(self, root):
+        if root == None:
+            return 0
         else:
-            cur = self.root
-            while cur != None:
-                count = count + 1
-                cur = cur.rightNode
-        return count
+            leftDepth = self.getDepth(root.leftNode)
+            rightDepth = self.getDepth(root.rightNode)
+            return 1 + max(leftDepth, rightDepth)
     
     
     # getParent()      得到父节点

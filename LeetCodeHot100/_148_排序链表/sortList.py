@@ -65,7 +65,8 @@ class Solution:
         #         slow = slow.next
         #         fast = fast.next.next
             
-        #     pre.next = None
+        #     pre.next = None           # 将链表分成两部分
+        
         #     # pre为左链表的尾节点(pre.next=None)，slow为右链表的头节点
         #     # 2.2 迭代
         #     leftHead = self.sortList(head)

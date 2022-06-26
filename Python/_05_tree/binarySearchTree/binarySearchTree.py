@@ -59,12 +59,34 @@ class BinarySearchTree(object):
     
     # items()          得到整个二叉树的元素迭代器
     def items(self):
-        pass
+        item = []
+        queue = []
+        queue.append(self.root)
+        while queue != []:
+            cur = queue.pop(0)
+            item.append(cur.item)
+            if cur.leftNode != None:
+                queue.append(cur.leftNode)
+            else:
+                pass
+            if cur.rightNode != None:
+                queue.append(cur.rightNode)
+            else:
+                pass
+        print("二叉树的数据为：",item)
 
     
     # getDepth()       得到深度
-    def getDepth(self):
-        pass
+    # 递归
+    def getDepth(self, root):
+        if root == None:
+            return 0 
+        else:
+            leftDepth = self.getDepth(root.leftNode)
+            rightDepth = self.getDepth(root.rightNode)
+            return 1 + max(leftDepth, rightDepth)
+    
+    
     
     # getParent()      得到父节点
     def getParent(self, item):
