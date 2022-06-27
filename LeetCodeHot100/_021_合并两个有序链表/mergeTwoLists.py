@@ -30,9 +30,12 @@ class ListNode:
     def __init__(self, val=0, next=None):
         self.val = val
         self.next = next
+        
+        
 class Solution:
     def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
         # # 创建新的链表存放最终的结果
+        # # 类似于链表的归并排序
         # newHead = ListNode(val=0, next=None)
 
         # cur = newHead
@@ -58,7 +61,7 @@ class Solution:
         # return newHead.next
 
         
-        
+        # 方法二： 将链表转化为list，对list进行操作
         link = []
 
         cur = list1
