@@ -62,6 +62,11 @@ class Solution:
         # 2. 反转链表前部的节点
         pre, slow, fast = None, head, head 
         
+        # 循环条件说明：
+        # 1. fast不能为None，如果fast为None，则不存在fast.next, 会报错
+        # 2. fast.next不能为None，如果fast.next为None，则不存在fast.next.next，会报错
+        # 综上 循环条件为： fast != None and fast.next != None 
+        
         while fast != None and fast.next != None:
             fast = fast.next.next    # fast指针移动步长
             # 反转链表：

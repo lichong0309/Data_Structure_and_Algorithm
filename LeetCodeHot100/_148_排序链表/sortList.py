@@ -61,6 +61,13 @@ class Solution:
         #         # 2) 一个指针走一次两步fast
         #         # 3) 一个指针记录中间位置pre
         #     slow, fast, pre = head, head, head
+        
+        
+        # 循环条件说明：
+        # 1. fast不能为None，如果fast为None，则不存在fast.next, 会报错
+        # 2. fast.next不能为None，如果fast.next为None，则不存在fast.next.next，会报错
+        # 综上 循环条件为： fast != None and fast.next != None         
+        
         #     while fast != None and fast.next != None:
         #         pre = slow
         #         slow = slow.next
