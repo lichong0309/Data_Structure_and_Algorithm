@@ -26,7 +26,7 @@ class radixSort(object):
             
             # 对于self.item中的每一个元素
             for j in self.item:
-                remain = (j // 10**i) % 10
+                remain = (j // 10**i) % 10          # 先求整，再求余
                 bucket[remain].append(j)
             
             # 得到新的元素排列
