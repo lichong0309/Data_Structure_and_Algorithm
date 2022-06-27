@@ -32,27 +32,56 @@ class ListNode:
         self.next = next
 class Solution:
     def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
-        # 创建新的链表存放最终的结果
-        newHead = ListNode(val=0, next=None)
+        # # 创建新的链表存放最终的结果
+        # newHead = ListNode(val=0, next=None)
 
-        cur = newHead
-        while list1 != None and list2 != None:
-            if list1.val <= list2.val:
-                # 创建新节点
-                newNode = ListNode(val=list1.val, next=None)
-                cur.next = newNode  # 添加新节点到newHead链表中
-                cur = cur.next      # cur永远指向newHead链表的最后一个节点
-                list1 = list1.next
-            else:
-                # 创建新节点：
-                newNode = ListNode(val=list2.val, next=None)
-                cur.next = newNode  # 添加新节点到newHead链表中
-                cur = cur.next      # cur永远指向newHead链表的最后一个节点
-                list2 = list2.next
+        # cur = newHead
+        # while list1 != None and list2 != None:
+        #     if list1.val <= list2.val:
+        #         # 创建新节点
+        #         newNode = ListNode(val=list1.val, next=None)
+        #         cur.next = newNode  # 添加新节点到newHead链表中
+        #         cur = cur.next      # cur永远指向newHead链表的最后一个节点
+        #         list1 = list1.next
+        #     else:
+        #         # 创建新节点：
+        #         newNode = ListNode(val=list2.val, next=None)
+        #         cur.next = newNode  # 添加新节点到newHead链表中
+        #         cur = cur.next      # cur永远指向newHead链表的最后一个节点
+        #         list2 = list2.next
         
-        if list1 != None:
-            cur.next = list1
-        if list2 != None:
-            cur.next = list2
+        # if list1 != None:
+        #     cur.next = list1
+        # if list2 != None:
+        #     cur.next = list2
+        
+        # return newHead.next
+
+        
+        
+        link = []
+
+        cur = list1
+        while cur != None:
+            link.append(cur.val)
+            cur = cur.next
+
+        cur = list2
+        while cur != None:
+            link.append(cur.val)
+            cur = cur.next
+        
+        # 排序
+        link.sort()
+
+        # 创建新的链表 
+        newHead = ListNode()
+        
+        # 往链表中添加节点
+        cur = newHead      
+        for val in link:
+            newNode = ListNode(val=val, next=None)
+            cur.next = newNode
+            cur = cur.next
         
         return newHead.next
