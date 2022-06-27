@@ -67,6 +67,7 @@ class Solution:
             p1 = p1.next 
             p2 = p2.next.next 
             
+            # 判断两个指针是否指向同一个位置
             if p1 is p2:
                 return True
 
