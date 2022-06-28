@@ -100,6 +100,7 @@ class singleLink(object):
                 currentNode = currentNode.next
             currentNode.next = item
         
+        
     # insert(pos, item) 指定位置添加元素，从0开始
     def insert(self, pos, item):
         countlink = 0
@@ -138,17 +139,20 @@ class singleLink(object):
         # 1.判断链表是否为空
         if self.head == None:           # 链表为空
             print("链表为空")
+            return False
         else:           # 链表不为空
             cur = self.head
             # 2. 判断删除的是否为第一个节点,如果是，则删除第一个节点
             if cur.data == item:
                 self.head = cur.next
+                return True
             # 3. 删除的节点不是第一个节点，在内部或者在尾部
             else:
                 pre = None 
                 while cur != None:
                     if cur.data == item:
                         pre.next = cur.next
+                        return True
                     pre = cur
                     cur = cur.next
 
