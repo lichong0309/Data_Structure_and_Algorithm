@@ -58,7 +58,7 @@ class Solution:
                 self.flatten(root.right)
 
             # 如果存在左子树，则插入到右子树中，防止左子树为空插入右子树后导致右子树丢失
-            if root.left ！= None:
+            if root.left != None:
                 # 将root的左子树插入到右子树中
                 cur = root              # 遍历左子树
                 temp = root.right       # 暂存（拉住）root的右子树
