@@ -73,5 +73,38 @@ class Solution:
                 # 将左子树插入右子树中
                 root.right = root.left      # root链接左子树为右子树
                 cur.right = temp             # 新的右子树的最后一个节点指向 原来的右子树
+                
                 # 将root的左子树置为空
                 root.left = None
+    
+    
+    
+    
+        # # 方法二：将右子树搬到左子树中，再将左子树移动到右子树中
+
+        # cur = root 
+
+        # while cur != None:
+
+        #     # 移动到root节点的左子树的第一个节点
+        #     if cur.left != None:
+        #         leftFirst = cur.left
+
+        #         # 从leftFirst开始寻找 最右节点
+        #         cur1 = leftFirst 
+        #         while cur1.right != None:
+        #             cur1 = cur1.right
+                
+        #         # 循环结束后cur1为 最右节点
+        #         # 将root的右子树搬到 左子树 的 最右节点上
+        #         cur1.right = cur.right
+
+        #         # 将左子树移动到右子树
+        #         cur.right = cur.left 
+                
+        #         # 左子树设为None
+        #         cur.left = None 
+
+        #     # cur移动到一个右节点
+        #     cur = cur.right 
+
