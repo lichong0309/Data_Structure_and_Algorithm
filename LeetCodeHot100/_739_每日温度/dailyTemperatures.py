@@ -47,6 +47,8 @@ class Solution:
                 
         # return ans
 
+
+
         # 第二种方法： 单调栈
         ans = [0] * len(temperatures)       # 初始化和temperatrus一样的list，元素为0
         # 创建栈,栈中保存索引index
