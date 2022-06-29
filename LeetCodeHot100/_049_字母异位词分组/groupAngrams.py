@@ -9,7 +9,9 @@ class Solution:
 
         ans = []
         for word in strs:
-            newStr = ''.join(sorted(word))      # 使用sorted可以作用在string，并且返回副本
+            # 使用sorted可以作用在string，并且返回副本
+            # list to str
+            newStr = ''.join(sorted(word))      
 
             # 如果newStr在dic中已经存在key
             if newStr in dic:
