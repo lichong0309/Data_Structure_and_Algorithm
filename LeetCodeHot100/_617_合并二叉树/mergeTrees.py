@@ -32,10 +32,13 @@ class TreeNode:
 class Solution:
     def mergeTrees(self, root1: TreeNode, root2: TreeNode) -> TreeNode:
         # 方法一：使用递归
+
+        # 如果root1和root2其中一个为None，则返回另外一个节点
         if root1 == None:
             return root2
         elif root2 == None:
             return root1
+        
         # root1和root2都不为None
         else:
             # 创建新节点
