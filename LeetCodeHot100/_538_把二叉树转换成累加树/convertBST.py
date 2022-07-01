@@ -47,7 +47,7 @@ class Solution:
         else:
             return self.help(root.left) + [root.val] + self.help(root.right)
 
-    # 中序遍历 将新的值 重新赋值给二叉搜索树中的每个节点
+    # 中序遍历 将新的值 重新 赋值给 二叉搜索树中的每个节点
     def help1(self, root, bstList):
         if root == None:
             return 
