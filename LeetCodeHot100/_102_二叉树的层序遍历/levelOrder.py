@@ -12,7 +12,61 @@
 
 示例 3：
 输入：root = []
-输出：[]
+输出：[]# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Solution:
+
+    def help(self, root, p, pList):
+        if root == None:
+            return False
+        else:
+            # 如果找到了p， 则返回True
+            if root.val == p.val:
+                pList.append(root)
+                return True
+
+            Inleft = self.help(root.left, p, pList)
+            Inright = self.help(root.right, p, pList)
+
+            # 如果root的左子树或者右子树存在p，则root为p节点的祖先节点
+            # 将root加入list中进行保存，返回True
+            # 否则返回False
+            if Inleft == True or Inright == True:
+                pList.append(root)      
+                return True
+            else:
+                return False
+
+    def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
+        pList = []                  # 存放p节点的祖先节点
+        qList = []                  # 存放q节点的祖先节点
+
+        self.help(root, p, pList)   # 得到p节点的祖先节点
+        self.help(root, q, qList)   # 得到q节点的祖先节点
+        # print(pList, qList)
+
+        # for i in range(len(pList)):
+        #     print(pList[i].val)
+        
+        # for i in range(len(qList)):
+        #     print(qList[i].val)
+
+        i = 0 
+        while pList[i] not in qList:
+            i = i + 1
+        return pList[i]
+
+
+
+        
+
+
+
  
 
 提示：
