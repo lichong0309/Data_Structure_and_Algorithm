@@ -37,7 +37,19 @@ class TreeNode:
 
 class Solution:
 
+    # 得到节点p的父节点，并存放到list中
     def help(self, root, p, pList):
+        """_summary_
+
+        Args:
+            root (_type_): 子树根节点
+            p (_type_): 需要寻找的节点
+            pList (_type_): 存放节点p父节点的list
+
+        Returns:
+            bool: _description_
+        """
+        
         if root == None:
             return False
         else:
@@ -59,6 +71,9 @@ class Solution:
                 return False
 
     def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
+        # 将p和q的父节点存放到list中
+        # 分别比较两个list
+        
         pList = []                  # 存放p节点的祖先节点
         qList = []                  # 存放q节点的祖先节点
 
