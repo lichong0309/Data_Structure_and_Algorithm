@@ -29,6 +29,7 @@ class TreeNode:
         
 from typing import Optional
 class Solution:
+    
     def help(self, root, targetSum):
         if root == None:
             return 0
@@ -40,6 +41,7 @@ class Solution:
             # 如果root本身也符合条件，则加一
             if root.val == targetSum:
                 ans += 1   
+                
             return ans 
     
     
