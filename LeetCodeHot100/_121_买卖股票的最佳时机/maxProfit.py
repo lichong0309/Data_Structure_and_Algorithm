@@ -24,17 +24,22 @@
 from typing import List
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
+        
         # 思路：
         #   1） 得到某天和前一天股票的价差，存放到profit数组中
         #   2） 找到最大子数组和，类似于第53题
         # 时间复杂度：O(n), n为prices数组的长度
+        
         length = len(prices)
+
 
         profit = [0] * length
         profit[0] = -prices[0]          # 初始化第一天的股票为负数
 
         for i in range(1, length):
             profit[i] = prices[i] - prices[i-1]
+        
+        
         
         dp = [0] * length
         dp[0] = profit[0]               # 初始化第一天的dp[0]为profit[0]
@@ -45,4 +50,10 @@ class Solution:
             else:
                 dp[i] = profit[i]
         
-        return max(dp)
+        
+        ans = max(dp)
+        
+        if ans >= 0:
+            return ans
+        else:
+            return 0
