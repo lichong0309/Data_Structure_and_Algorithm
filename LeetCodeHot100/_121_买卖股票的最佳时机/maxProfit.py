@@ -27,6 +27,7 @@ class Solution:
         # 思路：
         #   1） 得到某天和前一天股票的价差，存放到profit数组中
         #   2） 找到最大子数组和，类似于第53题
+        # 时间复杂度：O(n), n为prices数组的长度
         length = len(prices)
 
         profit = [0] * length
