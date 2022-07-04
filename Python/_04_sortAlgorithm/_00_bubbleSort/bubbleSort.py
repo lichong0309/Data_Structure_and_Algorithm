@@ -29,9 +29,10 @@ class bubbleSort(object):
             for j in range(len(self.item)-i-1):
                 if self.item[j] > self.item[j+1]:
                     # 交换
-                    temp = self.item[j+1]
-                    self.item[j+1] = self.item[j]
-                    self.item[j] = temp
+                    # temp = self.item[j+1]
+                    # self.item[j+1] = self.item[j]
+                    # self.item[j] = temp
+                    self.item[j], self.item[j+1] = self.item[j+1], self.item[j]
                 else:
                     pass
                 
