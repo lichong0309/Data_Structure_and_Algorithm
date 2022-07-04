@@ -27,4 +27,15 @@
  
 提示：
 1 <= m, n <= 100
-题目数据保证答案小于等于 2 * 109
+题目数据保证答案小于等于 2 * 109class Solution:
+    def uniquePaths(self, m: int, n: int) -> int:
+        # # 方法一，动态规划
+        # dp = [[0] * n  for _ in range(m)]
+
+        # for i in range(m):
+        #     # 如果是第一行, 则为1
+        #     if i == 0:
+        #         for j in range(n):
+        #             dp[i][j] = 1
+…
+        
