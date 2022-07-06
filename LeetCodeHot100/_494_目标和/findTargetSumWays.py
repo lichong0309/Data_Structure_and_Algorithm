@@ -31,6 +31,7 @@
 -1000 <= target <= 1000
 '''
 
+from typing import List
 class Solution:
     # 回溯法， 记忆化存储
     def help(self, nums, target, index, _sum, cache):
