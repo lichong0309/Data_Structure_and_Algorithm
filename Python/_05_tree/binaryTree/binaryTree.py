@@ -162,9 +162,17 @@ class BinaryTree(object):
             return count
         else:
             count = count + 1
-            count = self.getNodeNum(root.leftNode, count)
-            count = self.getNodeNum(root.rightNode, count)
+            count = self.getNodeNum1(root.leftNode, count)
+            count = self.getNodeNum1(root.rightNode, count)
         return count
+    
+    def get_node_num(self, root):
+        if root == None:
+            return 0
+        else:
+            leftCount = self.get_node_num(root.leftNode)
+            rightCount = self.get_node_num(root.rightNode)
+            return 1 + leftCount + rightCount
     
     # 使用递归，
     def getNodeNum(self, root):
@@ -645,8 +653,13 @@ if __name__ == "__main__":
     # 寻找父节点
     bt.getParent(Node(100))
     
+    items = bt.items()
+    print(items)
+
     # 得到节点数量
-    count = bt.getNodeNum(bt.root)
+    # count = bt.getNodeNum1(bt.root)
+    # count = bt.getNodeNum(bt.root)
+    count = bt.get_node_num(bt.root)
     print("节点的数量为：", count)
     
     # bt.clearTree(bt.root)
@@ -690,6 +703,7 @@ if __name__ == "__main__":
                     
                 
             
+
 
 
 
