@@ -44,8 +44,12 @@ class Solution:
 
         for i in range(1, length+1):
             for j in range(amount+1):
+                # 如果该硬币的面值 大于 总的金额，则该硬币对总的金额没有影响
+                # 则状态转移来自于 上一个硬币
                 if j < coins[i-1]:
                     dp[i][j] = dp[i-1][j]
+                # 如果该硬币的面值 小于 总的金额，则该硬币 可能 对 总的金额 有影响
+                # 则状态转移来自于 上个硬币，和该硬币
                 else:
                     dp[i][j] = min(dp[i-1][j], dp[i][j-coins[i-1]]+1)
         
