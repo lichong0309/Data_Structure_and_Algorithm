@@ -36,7 +36,8 @@ class Solution:
 
         length = len(coins)
 
-        # 创建二维数组
+        # 如果dp = [[float("inf")]*(amount) for _ in range(length)],则需要初始化dp中的第一行数据
+        # 创建二维数组， 分别设置了辅助列和辅助行，不需要初始化
         # 初始化为最坏的情况
         dp = [[float("inf")]*(amount+1) for _ in range(length+1)]
         dp[0][0] = 0            # 设置dp中确定的值

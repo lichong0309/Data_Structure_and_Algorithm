@@ -35,6 +35,11 @@ class Solution:
         # 因为后面需要使用到j-nums[i]可能等于0的索引，所以在纵向上添加0的一行索引
         dp = [[False]*(target+1) for _ in range(length)]
 
+        
+        '''
+        如果 dp = [[False]*(target+1) for _in range(length+1)]
+        则不需要初始化第一行
+        '''
         # 初始化第一行为True
         dp[0][0] = True
         # 如果nums第一个元素小于target
