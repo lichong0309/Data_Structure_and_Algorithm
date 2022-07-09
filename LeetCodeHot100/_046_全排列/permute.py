@@ -39,6 +39,7 @@ class Solution:
             else:
                 length = len(nums)
                 for i in range(length):
+                    # list的加号是浅拷贝
                     new_nums = nums[:i] + nums[i+1:]
                     new_temp = temp[:] + [nums[i]]
                     backtrack(new_nums, new_temp)
