@@ -54,22 +54,34 @@ class ListNode:
 class Solution:
     def hasCycle(self, head: Optional[ListNode]) -> bool:
 
-        # 使用快慢指针解题
-        # 如果存在环，则快指针与慢指针会相遇
+        # # 使用快慢指针解题
+        # # 如果存在环，则快指针与慢指针会相遇
 
-        p1 = head   # 慢指针，一次一步步长
-        p2 = head   # 快指针, 一次两步步长
+        # p1 = head   # 慢指针，一次一步步长
+        # p2 = head   # 快指针, 一次两步步长
 
-        # 退出条件： 
-        # 1）快指针不能为None，如果为None，这不存在fast.next,会报错
-        # 2）快指针的fast.next不能为None，如果fast.next为None，则fast.next.next不存在，会报错
-        while p2 != None and p2.next != None:
-            p1 = p1.next 
-            p2 = p2.next.next 
+        # # 退出条件： 
+        # # 1）快指针不能为None，如果为None，这不存在fast.next,会报错
+        # # 2）快指针的fast.next不能为None，如果fast.next为None，则fast.next.next不存在，会报错
+        # while p2 != None and p2.next != None:
+        #     p1 = p1.next 
+        #     p2 = p2.next.next 
             
-            # 判断两个指针是否指向同一个位置
-            if p1 is p2:
-                return True
+        #     # 判断两个指针是否指向同一个位置
+        #     if p1 is p2:
+        #         return True
 
-        return False   
+        # return False   
+        
+        
+        # 使用list存放node的引用，如果node的引用在list中，则存在环形
+        cur = head
+        nodeList = [] 
+        while cur != None:
+            if cur not in nodeList:
+                nodeList.append(cur)
+            else:
+                return True 
+            cur = cur.next
+        return False
             
