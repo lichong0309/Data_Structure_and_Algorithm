@@ -35,13 +35,13 @@ class Solution:
 
         m = len(matrix)
         n = len(matrix[0])
-        for i in range(m//2):
+        for i in range(m//2):                  # 到m//2结束
             for j in range(n):
                 matrix[i][j], matrix[m-i-1][j] = matrix[m-i-1][j], matrix[i][j]
         print(matrix)
 
         for i in range(m):
-            for j in range(i,n):
+            for j in range(i,n):                # 从i开始
                 matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j]
 
         print(matrix)
