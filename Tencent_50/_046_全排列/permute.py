@@ -26,13 +26,15 @@ nums 中的所有整数 互不相同
 
 
 from typing import List
+
+
 class Solution:
     def permute(self, nums: List[int]) -> List[List[int]]:
         
         
-        
         # 方法1：使用python自带的库
         # return list(itertools.permutations(nums))
+
 
         # 方法2：回溯法
         ans = []
