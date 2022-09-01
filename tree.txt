@@ -1,60 +1,5 @@
 .
-├── C++
-│   ├── include
-│   ├── lib
-│   ├── Makefile
-│   ├── output
-│   │   └── main
-│   └── src
-│       ├── main
-│       ├── main.cpp
-│       └── main.o
-├── docs
-│   └── doc.md
-├── image
-│   ├── bubbleSortImage.gif
-│   ├── selectionSortImage.gif
-│   └── 冒泡排序流程图.jpg
-├── interview
-│   └── interview.md
-├── LeetCodeHot100
-│   ├── _007_整数反转
-│   │   ├── reverse.md
-│   │   └── reverse.py
-│   ├── _015_三数之和
-│   │   ├── threeSum.md
-│   │   └── threeSum.py
-│   ├── _021_合并两个有序链表
-│   │   ├── mergeTwoLists.md
-│   │   └── mergeTwoLists.py
-│   ├── _049_字母异位词分组
-│   │   ├── groupAnagrams.md
-│   │   └── groupAngrams.py
-│   ├── _056_合并区间
-│   │   ├── merge.md
-│   │   └── merge.py
-│   ├── _148_排序链表
-│   │   ├── sortList.md
-│   │   └── sortList.py
-│   ├── _169_多数元素
-│   │   └── majorityElement.py
-│   ├── _215_数组中的第K个最大元素
-│   │   ├── findKthLargest.md
-│   │   └── findKthLargest.py
-│   ├── _347_前 K 个高频元素
-│   │   ├── topKFrequent.md
-│   │   └── topKFrequent.py
-│   ├── _406_根据身高重建队列
-│   │   ├── reconstructQueue.md
-│   │   └── reconstructQueue.py
-│   ├── _581_最短无序连续子数组
-│   │   ├── findUnsortedSubarray.md
-│   │   └── findUnsortedSubarray.py
-│   └── _621_任务调度器
-│       ├── leastInterval.md
-│       └── leastInterval.py
-├── LICENSE
-├── Python
+├── Data_Structure
 │   ├── _00_list
 │   │   └── list.py
 │   ├── _01_linkList
@@ -109,11 +54,324 @@
 │   │       ├── binaryTree.md
 │   │       └── binaryTree.py
 │   └── _06_graph
+├── docs
+│   ├── 剑指OFFER  名企面试官精讲典型编程题  第2版.pdf
+│   └── doc.md
+├── image
+│   ├── 冒泡排序流程图.jpg
+│   ├── bubbleSortImage.gif
+│   └── selectionSortImage.gif
+├── interview
+│   └── interview.md
+├── LeetCode剑指Offer
+│   └── 剑指offer.md
+├── LeetCodeHot100
+│   ├── _001_两数之和
+│   │   ├── twoSum.md
+│   │   └── twoSum.py
+│   ├── _002_两数相加
+│   │   ├── addTwoNumbers.md
+│   │   └── addTwoNumbers.py
+│   ├── _004_寻找两个正序数组的中位数
+│   │   ├── findMedianSortedArrays.md
+│   │   └── findMedianSortedArrays.py
+│   ├── _005_最长回文子串
+│   │   ├── longestPalindrome.md
+│   │   └── longestPalindrome.py
+│   ├── _007_整数反转
+│   │   ├── reverse.md
+│   │   └── reverse.py
+│   ├── _010_正则表达式匹配
+│   │   ├── isMatch.md
+│   │   └── isMatch.py
+│   ├── _011_盛最多水的容器
+│   │   ├── maxArea.md
+│   │   └── maxArea.py
+│   ├── _015_三数之和
+│   │   ├── threeSum.md
+│   │   └── threeSum.py
+│   ├── _017_电话号码的字母组合
+│   │   ├── letterCombinations.md
+│   │   └── letterCombinations.py
+│   ├── _019_删除链表的倒数第N个节点
+│   │   ├── removeNthFromEnd.md
+│   │   └── removeNthFromEnd.py
+│   ├── _020_有效的括号
+│   │   ├── isValid.md
+│   │   └── isValid.py
+│   ├── _021_合并两个有序链表
+│   │   ├── mergeTwoLists.md
+│   │   └── mergeTwoLists.py
+│   ├── _022_括号生成
+│   │   ├── generateParenthesis.md
+│   │   └── generateParenthesis.py
+│   ├── _023_合并K个升序链表
+│   │   ├── mergeKLists.md
+│   │   └── mergeKLists.py
+│   ├── _032_最长有效括号
+│   │   ├── longestValidParentheses.md
+│   │   └── longestValidParentheses.py
+│   ├── _033_搜索旋转排序数组
+│   │   ├── search.md
+│   │   └── search.py
+│   ├── _034_在排序数组中查找元素的第一个和最后一个位置
+│   │   ├── searchRange.md
+│   │   └── searchRange.py
+│   ├── _039_组合总和
+│   │   ├── combinationSum.md
+│   │   └── combinationSum.py
+│   ├── _042_接雨水
+│   │   ├── trap.md
+│   │   └── trap.py
+│   ├── _046_全排列
+│   │   ├── permute.md
+│   │   └── permute.py
+│   ├── _048_旋转图像
+│   │   ├── rotate.md
+│   │   └── rotate.py
+│   ├── _049_字母异位词分组
+│   │   ├── groupAnagrams.md
+│   │   └── groupAngrams.py
+│   ├── _053_最大子数组和
+│   │   ├── maxSubArray.md
+│   │   └── maxSubArray.py
+│   ├── _055_跳跃游戏
+│   │   ├── canJump.md
+│   │   └── canJump.py
+│   ├── _056_合并区间
+│   │   ├── merge.md
+│   │   └── merge.py
+│   ├── _062_不同路径
+│   │   ├── uniquePaths.md
+│   │   └── uniquePaths.py
+│   ├── _064_最小路径和
+│   │   ├── minPathSum.md
+│   │   └── minPathSum.py
+│   ├── _070_爬楼梯
+│   │   ├── climbStairs.md
+│   │   └── climbStairs.py
+│   ├── _072_编辑距离
+│   │   ├── minDistance.md
+│   │   └── minDistance.py
+│   ├── _078_子集
+│   │   ├── subsets.md
+│   │   └── subsets.py
+│   ├── _079_单词搜索
+│   │   ├── exist.md
+│   │   └── exist.py
+│   ├── _085_最大矩形
+│   │   ├── maximalRectangle.md
+│   │   └── maximalRectangle.py
+│   ├── _094_二叉树的中序遍历
+│   │   ├── inorderTraversal.md
+│   │   └── inorderTraversal.py
+│   ├── _096_不同的二叉搜索树
+│   │   ├── numTrees.md
+│   │   └── numTrees.py
+│   ├── _098_验证二叉搜索树
+│   │   ├── isValidBST.md
+│   │   └── isValidBST.py
+│   ├── _101_对称二叉树
+│   │   ├── isSymmetric.md
+│   │   └── isSymmetric.py
+│   ├── _102_二叉树的层序遍历
+│   │   ├── levelOrder.md
+│   │   └── levelOrder.py
+│   ├── _104_二叉树的最大深度
+│   │   ├── maxDepth.md
+│   │   └── maxDepth.py
+│   ├── _105_从前序与中序遍历序列构造二叉树
+│   │   ├── buildTree.md
+│   │   └── buildTree.py
+│   ├── _114_二叉树展开为链表
+│   │   ├── flatten.md
+│   │   └── flatten.py
+│   ├── _121_买卖股票的最佳时机
+│   │   ├── maxProfit.md
+│   │   └── maxProfit.py
+│   ├── _124_二叉树中的最大路径和
+│   │   ├── maxPathSum.md
+│   │   └── maxPathSum.py
+│   ├── _136_只出现一次的数字
+│   │   ├── singleNumber.md
+│   │   └── singleNumber.py
+│   ├── _139_单词拆分
+│   │   ├── wordBreak.md
+│   │   └── wordBreak.py
+│   ├── _141_环形链表
+│   │   ├── hasCycle.md
+│   │   └── hasCycle.py
+│   ├── _142_环形链表II
+│   │   ├── detectCycel.md
+│   │   └── detectCycle.py
+│   ├── _146_LRU缓存
+│   │   ├── LRUCache.md
+│   │   └── LRUCache.py
+│   ├── _148_排序链表
+│   │   ├── sortList.md
+│   │   └── sortList.py
+│   ├── _152_乘积最大的子数组
+│   │   ├── maxProduct.md
+│   │   └── maxProduct.py
+│   ├── _155_最小栈
+│   │   ├── MinStack.md
+│   │   └── MinStack.py
+│   ├── _160_相交链表
+│   │   ├── getIntersectionNode.md
+│   │   └── getIntersectionNode.py
+│   ├── _169_多数元素
+│   │   └── majorityElement.py
+│   ├── _198_打家劫舍
+│   │   ├── rob.md
+│   │   └── rob.py
+│   ├── _200_岛屿数量
+│   │   ├── numIslands.md
+│   │   └── numsIslands.py
+│   ├── _206_反转链表
+│   │   ├── reverseList.md
+│   │   └── reverseList.py
+│   ├── _208_实现Trie(前缀树)
+│   │   ├── Trie.md
+│   │   └── Trie.py
+│   ├── _215_数组中的第K个最大元素
+│   │   ├── findKthLargest.md
+│   │   └── findKthLargest.py
+│   ├── _221_最大正方形
+│   │   ├── maximalSquare.md
+│   │   └── maximalSquare.py
+│   ├── _226_翻转二叉树
+│   │   ├── invertTree.md
+│   │   └── invertTree.py
+│   ├── _234_回文链表
+│   │   ├── isPalindrome.md
+│   │   └── isPalindrome.py
+│   ├── _236_二叉树的最近公共祖先
+│   │   ├── lowestCommonAncestor.md
+│   │   └── lowestCommonAncestor.py
+│   ├── _238_除自身以外的数组的乘积
+│   │   ├── productExceptSelf.md
+│   │   └── productExceptSelf.py
+│   ├── _239_滑动窗口最大值
+│   │   ├── maxSlidingWindow.md
+│   │   └── maxSlidingWindow.py
+│   ├── _240_搜索二维矩阵II
+│   │   ├── searchMatrix.py
+│   │   └── serarchMatrix.md
+│   ├── _279_完全平方数
+│   │   ├── numSquares.md
+│   │   └── numSquares.py
+│   ├── _283_移动零
+│   │   ├── moveZeroes.md
+│   │   └── moveZeroes.py
+│   ├── _287_寻找重复数
+│   │   ├── findDuplicate.md
+│   │   └── findDuplicate.py
+│   ├── _300_最长递增子序列
+│   │   ├── lengthOfLIS.md
+│   │   └── lengthOfLIS.py
+│   ├── _301_删除无效的括号
+│   │   ├── removeInvalidParentheses.md
+│   │   └── removeInvalidParentheses.py
+│   ├── _309_最佳买卖股票时机含冷冻期
+│   │   ├── maxProfit.md
+│   │   └── maxProfit.py
+│   ├── _312_戳气球
+│   │   ├── maxCoin.py
+│   │   └── maxCoins.md
+│   ├── _322_零钱兑换
+│   │   ├── coinChange.md
+│   │   └── coinChange.py
+│   ├── _337_打家劫舍III
+│   │   ├── rob.md
+│   │   └── rob.py
+│   ├── _338_比特位计数
+│   │   ├── countBits.md
+│   │   └── countBits.py
+│   ├── _347_前 K 个高频元素
+│   │   ├── topKFrequent.md
+│   │   └── topKFrequent.py
+│   ├── _394_字符串解码
+│   │   ├── decodeString.md
+│   │   └── decodeString.py
+│   ├── _399_除法求值
+│   │   ├── calcEquation.md
+│   │   └── calcEquation.py
+│   ├── _406_根据身高重建队列
+│   │   ├── reconstructQueue.md
+│   │   └── reconstructQueue.py
+│   ├── _416_分割等和子集
+│   │   ├── canPartition.md
+│   │   └── canPartition.py
+│   ├── _437_路径总和III
+│   │   ├── pathSum.md
+│   │   └── pathSum.py
+│   ├── _448_找到所有数组中小时的数字
+│   │   ├── findDisappearedNumbers.md
+│   │   └── findDisappearedNumbers.py
+│   ├── _461_汉明距离
+│   │   ├── hammingDistance.md
+│   │   └── hammingDistance.py
+│   ├── _494_目标和
+│   │   ├── findTargetSumWays.md
+│   │   └── findTargetSumWays.py
+│   ├── _538_把二叉树转换成累加树
+│   │   ├── convertBST.md
+│   │   └── convertBST.py
+│   ├── _543_二叉树的直径
+│   │   ├── diamaterOfBinaryTree.py
+│   │   └── diameterOfBinaryTree.md
+│   ├── _581_最短无序连续子数组
+│   │   ├── findUnsortedSubarray.md
+│   │   └── findUnsortedSubarray.py
+│   ├── _617_合并二叉树
+│   │   ├── mergeTrees.md
+│   │   └── mergeTrees.py
+│   ├── _621_任务调度器
+│   │   ├── leastInterval.md
+│   │   └── leastInterval.py
+│   ├── _647_回文子串
+│   │   ├── countSubStrings.md
+│   │   └── countSubStrings.py
+│   ├── _739_每日温度
+│   │   ├── dailyTemperatures.md
+│   │   └── dailyTemperatures.py
+│   └── leetCodeHot100.md
+├── LICENSE
+├── Makefile
 ├── README.md
 ├── requirement.txt
+├── Tencent_50
+│   ├── _002_两数相加
+│   │   ├── addTwoNumbers.md
+│   │   └── addTwoNumbers.py
+│   ├── _005_最长回文子串
+│   │   ├── longestPalindrome.md
+│   │   └── longestPalindrome.py
+│   ├── _007_整数反转
+│   │   ├── reverse.md
+│   │   └── reverse.py
+│   ├── _015_三数之和
+│   │   ├── threeSum.md
+│   │   └── threeSum.py
+│   ├── _020_有效的括号
+│   │   ├── isValid.md
+│   │   └── isValid.py
+│   ├── _021_合并两个有序链表
+│   │   ├── mergeTwoLists.md
+│   │   └── mergeTwoLists.py
+│   ├── _023_合并K个升序链表
+│   │   ├── mergeKLists.md
+│   │   └── mergeKLists.py
+│   ├── _033_搜索旋转排序数组
+│   │   ├── search.md
+│   │   └── search.py
+│   ├── _046_全排列
+│   │   ├── permute.md
+│   │   └── permute.py
+│   └── Tencent_50.md
 ├── test
 │   └── test.md
 ├── TODO.md
 └── tree.txt
 
-43 directories, 73 files
+127 directories, 247 files
