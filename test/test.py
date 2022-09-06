@@ -1,48 +1,41 @@
 class Solution:
-    def subarraySum(self, nums, k: int) -> int:
-        # # 使用倒叙遍历相加的方法，时间复杂度O（n^2）
-        # # 不适用倒叙遍历，从0号位置正序遍历，则时间复杂度为O（n^3),超时
-        # length = len(nums)
-
-        # ans = 0
-
-        # # 遍历整个list，作为起始节点
-        # for start in range(length):
-        #     _sum = 0
-        #     for end in range(start, -1, -1):            # 从start开始倒叙遍历
-        #         _sum += nums[end]
-        #         if _sum == k:
-        #             ans += 1
-        # return ans 
-
-        # 使用前缀和 、 哈希表
-
+    def nextPermutation(self, nums) -> None:
+        """
+        Do not return anything, modify nums in-place instead.
+        """
         length = len(nums)
-        ans = 0 
-        dic = {}            # key:前缀和 value:前缀和出现的次数（因为可能相同的key出现在不同的位置，不能覆盖，但是只需要记录出现的次数即可）
-        dic[0] = 1          # 初始化
+        
+        for i in range(length-1, 0, -1):
+            # 从后往前遍历，找到第一个不是升序的位置，为i-1
+            if nums[i-1] < nums[i]:
+                
+                # 找到大于nums[i-1]最小的元素的位置，记为j
+                for j in range(length-1, i-1, -1):
+                    if nums[j] <= nums[i-1]:
+                        pass
+                    else:
+                        # 交换位置
+                        nums[i-1], nums[j] = nums[j], nums[i-1]
+                        break            # 退出循环
+                print(nums)
+                # 反转nums[i:]的所有元素
+                subListLength = length - 1 - (i-1)
+                for m in range(subListLength//2):
+                    left = m + i
+                    right = length - 1 - m
+                    # 交换
+                    nums[left], nums[right] = nums[right], nums[left]
 
-        _sum = 0 
-        for i in range(length):
-            _sum += nums[i]
-            # 将前缀和加入字典中
-            if _sum in dic:
-                dic[_sum] += 1
-            else:
-                dic[_sum] = 1
-
-
-            remind = _sum - k            # 寻找符合条件的前缀和
-            if remind in dic:
-                ans += dic[remind]
+                return 
+            
             else:
                 pass
-                
-        return ans 
+
+        nums.reverse()
                 
 
-nums = [-1,-1,1]
-k = 0
+nums = [1,3,2]
+
 s = Solution()
-ans = s.subarraySum(nums, k)
-print(ans)
+s.nextPermutation(nums)
+print(nums)
