@@ -1,43 +1,77 @@
 class Solution:
-    def largestRectangleArea(self, heights) -> int:
-        # 核心思想：
-        # 对于索引i的元素，能围成的最大面积为：
-        # max_area = left_area + right_area + heights【i】
-        # left_area: 找到 左边 第一个比heights[i]小的元素
-        # right_area: 找到 右边 第一个比heights[i]小的元素
+    def minPathSum(self, grid) -> int:
+        # 方法二： 动态规划
 
+        grid_m = len(grid) 
+        grid_n = len(grid[0])
 
-        heights = [0] + heights + [0]
-        length = len(heights)
+        # 创建二维数组
+        dp = [[0] * grid_n for _ in range(grid_m)]
 
-        stack = []
-        ans = 0 
-        for i in range(length):
-            # 入栈
-            if stack == [] or heights[i] >= heights[stack[-1]]:
-                stack.append(i)
+        # dp[0][0] = grid[0][0]
+        
+        # 对于每行
+        for i in range(grid_m):
+            # 如果为第一行，只需要加上从左来的值
+            if i == 0:
+                for j in range(grid_n):
+                    print(dp[i][j-1])
+                    dp[i][j] = grid[i][j] + dp[i][j-1]
+            # 如果不为第一行，则需要加上从左来的值 和 从上来的值
             else:
-                # 出栈
-                while stack != [] and heights[i] < heights[stack[-1]]:
-                    # 出栈
-                    tmp = stack.pop()
+                for j in range(grid_n):
+                    # 如果为第一列，只需要加上从上来的值
+                    if j == 0:
+                        # print(dp[])
+                        dp[i][j] = grid[i][j] + dp[i-1][j]
 
-                    # 左边 第一个最小值
-                    left = stack[-1]
-                    # 右边 第一个最小值
-                    right = i
-                    
-                    area = heights[tmp] * (right - left - 1)
+                    # 如果不为第一列，则需要比较是加上从上来的值 还是 从左来得值
+                    else:
+                        # 如果 从 左 来的值
+                        left = grid[i][j] + dp[i][j-1]
+                        # 如果 从 上 来的值
+                        up = grid[i][j] + dp[i-1][j]
 
-                    ans = max(area, ans)
+                        if left >= up:
+                            dp[i][j] = up
+                        else:
+                            dp[i][j] = left
+        # print(dp)
+        return dp[grid_m-1][grid_n-1]  
 
-                    # 将新的值入栈
-                    stack.append(i)
+    # # 方法一：使用递归， 超时
+    # # 建模成二叉树， 寻找节点值最小的path
+    # def help(self, grid, m, n):
+    #     grid_m = len(grid) - 1
+    #     grid_n = len(grid[0]) - 1
 
-        return ans 
+    #     if m >= grid_m and n >= grid_n:
+    #         return grid[grid_m][grid_n]
+        
+    #     else:
+    #         leftCount = 0
+    #         rightCount = 0
+    #         # 可以向下
+    #         if m < grid_m:
+    #             leftCount = self.help(grid, m+1, n)
+    #         if n < grid_n:
+    #             rightCount = self.help(grid, m, n+1)
+            
+    #         if leftCount == 0:
+    #             minNum = rightCount
+    #         elif rightCount == 0:
+    #             minNum = leftCount
+    #         else:
+    #             minNum = min(leftCount, rightCount)
+    #         return grid[m][n] + minNum
+
+    # def minPathSum(self, grid: List[List[int]]) -> int:
+        # ans = self.help(grid, 0, 0)
+        # return ans
 
 nums = [2,1,5,6,2,3]
 
 s = Solution()
-ans = s.largestRectangleArea(nums)
+grid = [[1,3,1],[1,5,1],[4,2,1]]
+ans = s.minPathSum(grid)
 print(ans)

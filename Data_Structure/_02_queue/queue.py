@@ -22,6 +22,14 @@ class queue(object):
 
     # enqueue(item) 往队列中添加一个item元素，在队列末尾添加
     def enqueue(self, item):
+        """_summary_
+
+        Args:
+            item (_type_): _description_
+
+        Returns:
+            _type_: _description_
+        """
         return self.item.insert(len(self.item), item)
     
     # dequeue() 从队列头部删除一个元素
