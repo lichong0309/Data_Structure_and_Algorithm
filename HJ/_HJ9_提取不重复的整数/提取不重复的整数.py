@@ -6,7 +6,9 @@ class Solution(object):
         ans = ''
         while n != 0:
             t = n % 10
-            ans += str(t)
+            if t not in dic:
+                ans += str(t)
+                dic[t] = 1
             n = n // 10
         return ans
 
