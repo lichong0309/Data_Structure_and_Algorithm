@@ -1,7 +1,7 @@
 class Solution(object):
     def __init__(self):
         pass
-    def solution(self, s):
+    def solution(self):
         pass
 
     
